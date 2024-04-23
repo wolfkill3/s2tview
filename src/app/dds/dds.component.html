@@ -1,0 +1,109 @@
+<div class="c-page-container">
+  <div class="c-container c-default flex1">
+    <div class="c-column">
+      <div class="c-row">
+        <div class="c-element c-sp17">
+          <input placeholder="Название таблицы (Таблица ПУД)" id="table_name" type="text" class="c-input  c-sp17"
+                 [(ngModel)]="tableName">
+        </div>
+        <select class="c-element c-sp8" [(ngModel)]="dataLayer">
+          <option value="" disabled selected>Слой данных</option>
+          <option value="DM">DM</option>
+          <option value="DDS">DDS</option>
+          <option value="DM_USERS">DM_USERS</option>
+        </select>
+        <div class="c-element c-sp21 input-field label">
+          <input placeholder="Модуль" id="module" type="text" class="c-input  c-sp21" [(ngModel)]="module">
+        </div>
+        <div class="c-element c-sp21">
+          <input placeholder="Название таблицы (Таблица)" id="description" type="text" class="c-input  c-sp21"
+                 [(ngModel)]="description">
+        </div>
+        <div class="c-element c-sp25">
+          <input placeholder="Схема ПУД" id="schema_pud" type="text" class="c-input  c-sp25" [(ngModel)]="schemaPud">
+        </div>
+      </div>
+    </div>
+    <div class="c-row">
+      <select class="c-element c-sp15" [(ngModel)]="tableType">
+        <option value="" disabled selected>Тип таблицы</option>
+        <option value="Агрегат">Агрегат</option>
+        <option value="Актуальный срез">Актуальный срез</option>
+        <option value="Измерение">Измерение</option>
+        <option value="Связки идентификаторов">Связки идентификаторов</option>
+        <option value="Справочник">Справочник</option>
+        <option value="Справочник AS IS">Справочник AS IS</option>
+      </select>
+      <div class="c-element c-sp11">
+        <input placeholder="Глубина пересчета" id="conversion_depth" type="number" class="c-input  c-sp11"
+               [(ngModel)]="conversionDepth">
+      </div>
+      <div class="c-element c-sp17">
+        <input placeholder="Стартовая дата истории из CSV" onfocus="(this.type='date')" onblur="(this.type='text')"
+               id="start_date_from_csv" type="text" class="c-input c-sp17" pattern="\d{4}-\d{2}-\d{2}"
+               [(ngModel)]="startDateFromCsv">
+      </div>
+      <div class="c-element c-sp17">
+        <input placeholder="Стартовая дата расчета по ODS" onfocus="(this.type='date')" onblur="(this.type='text')"
+               id="start_ods_conversion_date" type="text" class="c-input c-sp17" pattern="\d{4}-\d{2}-\d{2}"
+               [(ngModel)]="startOdsConversionDate">
+      </div>
+      <div class="c-element c-sp17">
+        <input placeholder="Доп. поле партицирования" id="extra_partition_field" type="text" class="c-input  c-sp17"
+               [(ngModel)]="extraPartitionField">
+      </div>
+      <div class="c-element c-sp17">
+        <input placeholder="Расчет доп. поля партицирования" id="conversion_extra_partition_field" type="text"
+               class="c-input  c-sp17" [(ngModel)]="conversionExtraPartitionField">
+      </div>
+    </div>
+    <div class="c-row">
+      <div class="c-column c-sp10 c-left1p">
+        <input  class="c-sp10" placeholder="Таблицы ПУД" type="text" (keyup.enter)="onEnter()" [(ngModel)]="currentPudTable">
+        <button class="aves-effect waves-light btn" type="button" (click)="clearPudTable()">Очистить</button>
+      </div>
+      <ul class="c-chip-area c-left1p">
+        <li class="collection-item c-chip" *ngFor="let name of incomingPudTables">
+          <app-pud-table [name]="name" (delete)="deleteTable($event)"></app-pud-table>
+        </li>
+      </ul>
+    </div>
+    <div class="c-row">
+      <select class="c-element c-sp10" [(ngModel)]="scdType">
+        <option value="" disabled selected>Тип SCD</option>
+        <option value="SCD1">SCD1</option>
+        <option value="SCD2">SCD2</option>
+      </select>
+      <div class="c-element c-sp7">
+        <input placeholder="Etl Id Dev" id="etl_id_dev" type="number" class="c-input  c-sp10" [(ngModel)]="etlIdDev">
+      </div>
+      <div class="c-element c-sp7">
+        <input placeholder="Etl Id Wrk" id="etl_id_wrk" type="number" class="c-input  c-sp10" [(ngModel)]="wrkEtlId">
+      </div>
+      <div class="c-element c-sp7">
+        <input placeholder="Etl Id Prod" id="etl_id_prod" type="number" class="c-input  c-sp10" [(ngModel)]="prodEtlId">
+      </div>
+      <div class="c-element c-sp30">
+        <input placeholder="Параметры spark-submit" id="spark_submit_parameters" type="text" class="c-input  c-sp30"
+               [(ngModel)]="sparkSubmitParameters">
+      </div>
+      <div class="c-element c-sp29">
+        <input placeholder="PK" id="pk" type="text" class="c-input  c-sp29" [(ngModel)]="pk">
+      </div>
+    </div>
+    <ul class="c-left1p">
+      <li class="c-chip c-attribute-area" *ngFor="let attribute of attributes">
+        <app-table-attribute [attribute]="attribute" (delete)="deleteAttribute($event)"></app-table-attribute>
+      </li>
+    </ul>
+    <a class="c-left1p btn-floating btn-large waves-effect waves-light lighten-2" (click)="addAttribute()">
+      <i class="material-icons aves-effect waves-effect">add</i>
+    </a>
+  </div>
+
+  <footer class="c-container page-footer lighten-2 teal dds-footer">
+    <div class="col l4 offset-l2 s12 c-left2p">
+      <button class="aves-effect waves-light btn" type="button" (click)="send()">Отправить в S2T</button>
+    </div>
+  </footer>
+</div>

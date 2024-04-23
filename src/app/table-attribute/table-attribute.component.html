@@ -1,0 +1,50 @@
+<div class="c-attribute">
+  <div class="c-row">
+    <div class="c-element c-sp24">
+      <input placeholder="Название атрибута (Поле ПУД)" type="text" class="c-input  c-sp24" #attributeName
+             (change)="setAttributeName(attributeName.value)">
+    </div>
+    <div class="c-element c-sp17">
+      <input placeholder="Атрибут" type="text" class="c-input  c-sp17" #attribute (change)="setDescription(attribute.value)">
+    </div>
+    <div class="c-element c-sp17">
+      <input placeholder="Комментарий" type="text" class="c-input  c-sp17" #note (change)="setNote(note.value)">
+    </div>
+    <div class="c-element c-sp14">
+      <input placeholder="Схема ПУД" type="text" class="c-input  c-sp14" #schema (change)="setSchemePud(schema.value)">
+    </div>
+    <select class="c-element c-sp14 c-attribute-option" #type (change)="setAttributeType(type.value)">
+      <option value="" disabled selected>Тип данных ПУД</option>
+      <option value="date">date</option>
+      <option value="timestamp">timestamp</option>
+      <option value="int">int</option>
+      <option value="tinyint">tinyint</option>
+      <option value="decimal(38,0)">decimal(38,0)</option>
+      <option value="string">string</option>
+      <option value="bigint">bigint</option>
+    </select>
+    <div class="c-element c-sp23">
+      <input placeholder="Таблица FK (FK)" type="text" class="c-input  c-sp23" #fkTable (change)="setFkTableName(fkTable.value)">
+    </div>
+
+    <div class="c-element c-sp23">
+      <input placeholder="Выр. для расчета атрибута" type="text" class="c-input  c-sp23" #expr (change)="setAttributeValueExpression(expr.value)">
+    </div>
+
+    <i class="close material-icons" (click)="deleteMe()">close</i>
+  </div>
+  <div class="c-row">
+    <div class="c-element c-sp10">
+      <label class="c-sp10">
+        <input type="checkbox" class="filled-in c-sp10" (change)="setPk()"/>
+        <span>PK</span>
+      </label>
+    </div>
+    <div class="c-element c-sp10">
+      <label class="c-sp10">
+        <input type="checkbox" class="filled-in c-sp10" (change)="setFk()"/>
+        <span>FK</span>
+      </label>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,410 @@
 /* You can add global styles to this file, and also import other style files */
+.c-page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.c-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  justify-items: flex-start;
+}
+
+.c-element {
+  position: relative;
+  display: flex;
+  margin: 1%;
+}
+.c-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  justify-items: flex-start;
+}
+
+.c-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  justify-items: flex-start;
+}
+
+.c-chip-area {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  margin-left: 20px;
+  margin-right: 1%;
+  border-radius: 10px;
+  width: 89.3%;
+  min-height: 100px;
+  /*max-width: 1345px;*/
+  height: auto;
+  background-color: rgba(0, 115, 91, 0.04);
+}
+
+
+.c-chip {
+  display: flex;
+  order: 5;
+  flex-shrink: 5;
+}
+
+.c-attribute-area {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-content: center;
+  border-radius: 10px;
+  width: 100%;
+  min-height: 100px;
+  /*max-width: 1645px;*/
+  height: auto;
+}
+
+.c-attribute {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  border-radius: 10px;
+  width: 99%;
+  margin-top: 10px;
+  min-height: 100px;
+  margin-right: 1%;
+  /*max-width: 1345px;*/
+  height: auto;
+  background-color: rgba(0, 115, 91, 0.04);
+}
+
+.c-attribute-option {
+  background-color: rgba(0, 115, 91, 0.00);
+}
+
+.dds-footer {
+  margin-top: 100px;
+  width: 100%;
+  height: 75px;
+  bottom: 0;
+}
+
+.flex1 {
+  flex: 1;
+}
+
+.c-relative {
+  position: relative;
+}
+
+.c-left5px {
+  margin-left: 10px;
+}
+
+.c-left10px {
+  margin-left: 10px;
+}
+
+.c-left15px {
+  margin-left: 15px;
+}
+
+.c-left25px {
+  margin-left: 25px;
+}
+
+.c-left30px {
+  margin-left: 30px;
+}
+
+.c-left40px {
+  margin-left: 40px;
+}
+
+.c-left1p {
+  margin-left: 1%;
+}
+
+.c-left2p {
+  margin-left: 2%;
+}
+
+.c-left3p {
+  margin-left: 3%;
+}
+
+.c-left4p {
+  margin-left: 4%;
+}
+
+.c-left5p {
+  margin-left: 5%;
+}
+
+.c-nav {
+  margin-left: 30px;
+}
+
+.c-s1 {
+  width: 20px;
+}
+
+.c-s2 {
+  width: 25px;
+}
+
+.c-s3 {
+  width: 30px;
+}
+
+.c-s4 {
+  width: 35px;
+}
+
+.c-s5 {
+  width: 40px;
+}
+
+.c-s6 {
+  width: 45px;
+}
+
+.c-s7 {
+  width: 50px;
+}
+
+.c-s8 {
+  width: 55px;
+}
+
+.c-s9 {
+  width: 60px;
+}
+
+.c-s10 {
+  width: 65px;
+}
+
+.c-s20 {
+  width: 100px;
+}
+
+.c-s21 {
+  width: 120px;
+}
+
+.c-s22 {
+  width: 140px;
+}
+
+.c-s23 {
+  width: 160px;
+}
+
+.c-s24 {
+  width: 180px;
+}
+
+.c-s25 {
+  width: 200px;
+}
+
+.c-s26 {
+  width: 220px;
+}
+
+.c-s27 {
+  width: 240px;
+}
+
+.c-s28 {
+  width: 260px;
+}
+
+.c-s29 {
+  width: 280px;
+}
+
+.c-s30 {
+  width: 300px;
+}
+
+.c-s31 {
+  width: 320px;
+}
+
+.c-s32 {
+  width: 340px;
+}
+
+.c-s33 {
+  width: 360px;
+}
+
+.c-s34 {
+  width: 380px;
+}
+
+.c-s35 {
+  width: 400px;
+}
+
+.c-s36 {
+  width: 420px;
+}
+
+.c-s37 {
+  width: 440px;
+}
+
+.c-s38 {
+  width: 460px;
+}
+
+.c-s39 {
+  width: 480px;
+}
+
+.c-s40 {
+  width: 500px;
+}
+
+.c-s41 {
+  width: 520px;
+}
+
+.c-s42 {
+  width: 540px;
+}
+
+.c-s43 {
+  width: 560px;
+}
+
+.c-sp1 {
+  width: 1%;
+}
+
+.c-sp2 {
+  width: 2%;
+}
+
+.c-sp3 {
+  width: 3%;
+}
+
+.c-sp4 {
+  width: 4%;
+}
+
+.c-sp5 {
+  width: 5%;
+}
+
+.c-sp6 {
+  width: 6%;
+}
+
+.c-sp7 {
+  width: 7%;
+}
+
+.c-sp8 {
+  width: 8%;
+}
+
+.c-sp9 {
+  width: 9%;
+}
+
+.c-sp10 {
+  width: 10%;
+}
+
+.c-sp11 {
+  width: 11%;
+}
+
+.c-sp12 {
+  width: 12%;
+}
+
+.c-sp13 {
+  width: 13%;
+}
+
+.c-sp14 {
+  width: 14%;
+}
+
+.c-sp15 {
+  width: 15%;
+}
+
+.c-sp16 {
+  width: 16%;
+}
+
+.c-sp17 {
+  width: 17%;
+}
+
+.c-sp18 {
+  width: 18%;
+}
+
+.c-sp19 {
+  width: 19%;
+}
+
+.c-sp20 {
+  width: 20%;
+}
+
+.c-sp21 {
+  width: 21%;
+}
+
+.c-sp22 {
+  width: 22%;
+}
+
+.c-sp23 {
+  width: 23%;
+}
+
+.c-sp24 {
+  width: 24%;
+}
+
+.c-sp25 {
+  width: 25%;
+}
+
+.c-sp26 {
+  width: 26%;
+}
+
+.c-sp27 {
+  width: 27%;
+}
+
+.c-sp28 {
+  width: 28%;
+}
+
+.c-sp29 {
+  width: 29%;
+}
+
+.c-sp30 {
+  width: 30%;
+}
+
+

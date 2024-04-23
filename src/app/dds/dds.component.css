@@ -1,0 +1,26 @@
+.c-input-pud {
+  height: 25px;
+  margin-left: 10px;
+  margin-top: 30px;
+}
+
+.c-pud-field {
+  margin-left: 40px;
+  border: black 2px;
+  background-color: antiquewhite;
+  flex-wrap: wrap;
+  flex-grow: 4;
+}
+
+.c-pud-clear {
+  justify-content: center;
+  width: 170px;
+}
+
+.c-default {
+  display: flex;
+  /*justify-content: center;*/
+  margin-left: 1%;
+  margin-top: 1%;
+  margin-right: 1%;
+}

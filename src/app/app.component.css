@@ -1,0 +1,45 @@
+.c-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+}
+
+.c-element {
+  display: flex;
+}
+.c-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-items: center;
+}
+
+.c-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+}
+
+.c-s1 {
+  width: 20px;
+}
+
+.c-s2 {
+  width: 25px;
+}
+
+.c-s3 {
+  width: 30px;
+}
+
+.c-s4 {
+  width: 35px;
+}
+
+.c-s5 {
+  width: 40px;
+}
+
+
