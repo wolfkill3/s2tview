@@ -1,10 +1,11 @@
 import {Component} from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {CommonModule, DatePipe, NgForOf} from "@angular/common";
-import {PudTableComponent} from "../pud-table/pud-table.component";
-import {TableAttributeComponent} from "../table-attribute/table-attribute.component";
+import {PudTableComponent} from "../util/pud-table/pud-table.component";
+import {TableAttributeComponent} from "../util/table-attribute/table-attribute.component";
 import {HttpClient} from "@angular/common/http";
 import {RouterLink, RouterLinkActive} from "@angular/router";
+import {BASE_URL} from "../app.config";
 
 @Component({
   selector: 'app-dds',
@@ -28,7 +29,7 @@ export class DdsComponent {
   startOdsConversionDate = ''; //TODO format
   extraPartitionField = '';
   conversionExtraPartitionField = '';
-  incomingPudTables:String[] = [];
+  incomingPudTables: String[] = [];
   currentPudTable = '';
   scdType = '';
   etlIdDev?: number | null;
@@ -36,7 +37,7 @@ export class DdsComponent {
   pk = '';
   wrkEtlId?: number | null;
   prodEtlId?: number | null;
-  attributes:TableAttributeComponent[] = [];
+  attributes: TableAttributeComponent[] = [];
 
 
   constructor(private datePipe: DatePipe, private client: HttpClient) {
@@ -62,18 +63,18 @@ export class DdsComponent {
       'pk': this.pk,
       'wrkEtlId': this.wrkEtlId,
       'prodEtlId': this.prodEtlId,
-      'attributes': this.attributes.map(a=> a.getJson())
+      'attributes': this.attributes.map(a => a.getJson())
     }
 
-    this.client.post<any>("http://localhost:8080", requestBody).subscribe(data=>console.log(data))
-     // console.log(requestBody)
+    this.client.post<any>(BASE_URL + 's2t/' + this.dataLayer + '/table', requestBody).subscribe(data => console.log(data))
+    // console.log(requestBody)
   }
 
   public onEnter() {
-    let names:String[] = this.currentPudTable.split(',')
+    let names: String[] = this.currentPudTable.split(',')
 
     if (names.length > 1) {
-      names.forEach(name=>this.incomingPudTables.push(name))
+      names.forEach(name => this.incomingPudTables.push(name))
     } else {
       this.incomingPudTables.push(this.currentPudTable)
     }

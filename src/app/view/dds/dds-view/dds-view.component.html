@@ -1,0 +1,63 @@
+<div class="c-page-container">
+  <div class="c-container c-default flex1">
+    <div class="c-column">
+      <div class="c-row">
+        <div class="c-element c-sp17">
+          <div id="table_name" class="c-input  c-sp17">{{tableName}}</div>
+        </div>
+        <div class="c-element c-sp8">{{dataLayer}}</div>
+        <div class="c-element c-sp21 input-field label">
+          <div id="module" class="c-input  c-sp21">{{module}}</div>
+        </div>
+        <div class="c-element c-sp21">
+          <div id="description" class="c-input c-sp21">{{description}}</div>
+        </div>
+        <div class="c-element c-sp25">
+          <div class="c-input  c-sp25">{{schemaPud}}</div>
+        </div>
+      </div>
+      <div class="c-row">
+        <div id="tableType" class="c-element c-sp15">{{tableType}}</div>
+        <div class="c-element c-sp11">
+          <div class="c-input  c-sp11">{{conversionDepth}}</div>
+        </div>
+        <div class="c-element c-sp17">
+          <div id="start_date_from_csv" class="c-input c-sp17">{{startDateFromCsv}}</div>
+        </div>
+        <div class="c-element c-sp17">
+          <div id="start_ods_conversion_date" class="c-input c-sp17">{{startOdsConversionDate}}</div>
+        </div>
+        <div class="c-element c-sp17">
+          <div id="extra_partition_field" class="c-input c-sp17">{{extraPartitionField}}</div>
+        </div>
+        <div class="c-element c-sp17">
+          <div id="conversion_extra_partition_field" class="c-input c-sp17">{{conversionExtraPartitionField}}</div>
+        </div>
+      </div>
+      <div class="c-row">{{incomingPudTables}}</div>
+      <div class="c-row">
+        <div class="c-element c-sp10">{{scdType}}</div>
+        <div class="c-element c-sp7">
+          <div id="etl_id_dev" class="c-input  c-sp10">{{etlIdDev}}</div>
+        </div>
+        <div class="c-element c-sp7">
+          <div id="etl_id_wrk" class="c-input  c-sp10">{{etlIdWrk}}</div>
+        </div>
+        <div class="c-element c-sp7">
+          <div id="etl_id_prod" class="c-input  c-sp10">{{etlIdProd}}</div>
+        </div>
+        <div class="c-element c-sp30">
+          <div id="spark_submit_parameters" class="c-input  c-sp30">{{sparkSubmitParameters}}</div>
+        </div>
+        <div class="c-element c-sp29">
+          <div id="pk" class="c-input  c-sp29">{{pk}}</div>
+        </div>
+      </div>
+<!--      <ul class="c-left1p">-->
+<!--        <li class="c-chip c-attribute-area" *ngFor="let attribute of attributes">-->
+<!--          <app-dds-view-attribute [attribute]="attribute"></app-dds-view-attribute>-->
+<!--        </li>-->
+<!--      </ul>-->
+    </div>
+  </div>
+</div>

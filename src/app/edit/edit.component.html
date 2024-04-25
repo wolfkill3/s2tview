@@ -1,0 +1,167 @@
+<div class="c-page-container">
+  <div class="c-container c-default flex1">
+    <div class="c-column">
+      <div class="c-row">
+        <select id="data_layer" class="c-element c-sp8" [(ngModel)]="dataLayer">
+          <option value="" disabled selected>Слой данных</option>
+          <option value="DM">DM</option>
+          <option value="DDS">DDS</option>
+        </select>
+        <div class="c-element c-sp17">
+          <input placeholder="Название таблицы (Таблица ПУД)" id="table_name" type="text" class="c-input  c-sp17"
+                 [(ngModel)]="tableName">
+        </div>
+        <div class="col l4 offset-l2 s12 c-left2p c-top20px">
+          <button class="aves-effect waves-light btn" type="button" (click)="load()">Поиск</button>
+        </div>
+      </div>
+      <div [hidden]="hidden">
+        <div class="c-row">
+          <div class="c-element c-column c-sp21">
+            <label class="c-bot5px c-element">Модуль</label>
+            <input id="module" class="c-input  c-sp21 validate" [defaultValue]="table.module" [disabled]=disable>
+          </div>
+          <div class="c-element c-column c-sp29">
+            <label class="c-bot5px c-element">Схема ПУД</label>
+            <input class="c-input  c-sp25" [defaultValue]="table.schemaPud" [disabled]=disable>
+          </div>
+          <div class="c-element c-column c-sp45">
+            <label class="c-bot5px c-element">Описание</label>
+            <input id="description" class="c-input c-sp21" [defaultValue]="table.description" [disabled]=disable>
+          </div>
+        </div>
+        <div class="c-row">
+          <div class="c-element c-column c-sp11">
+            <label class="c-bot5px c-element">Тип таблицы</label>
+            <input id="tableType" class="c-element c-sp15" [defaultValue]="table.tableType" [disabled]=disable>
+          </div>
+          <div class="c-element c-column c-sp11">
+            <label class="c-bot5px c-element">Глубина пересчета (дни)</label>
+            <input class="c-input  c-sp11" [defaultValue]="table.conversionDepth" [disabled]=disable>
+          </div>
+          <div class="c-element c-column c-sp17">
+            <label class="c-bot5px c-element">Стартовая дата истории из CSV</label>
+            <input id="start_date_from_csv" class="c-input c-sp17" [defaultValue]="table.startDateFromCsv"
+                   disabled="disabled">
+          </div>
+          <div class="c-element c-column c-sp17">
+            <label class="c-bot5px c-element">Стартовая дата расчета по ODS</label>
+            <input id="start_ods_conversion_date" class="c-input c-sp17" [defaultValue]="table.startOdsConversionDate"
+                   disabled="disabled">
+          </div>
+          <div class="c-element c-column c-sp17">
+            <label class="c-bot5px c-element">Доп. поле партицирования</label>
+            <input id="extra_partition_field" class="c-input c-sp17" [defaultValue]="table.extraPartitionField"
+                   [disabled]=disable>
+          </div>
+          <div class="c-element c-column c-sp17">
+            <label class="c-bot5px c-element">Расчет доп. поля партицирования</label>
+            <input id="conversion_extra_partition_field"
+                   class="c-input c-sp17" [defaultValue]="table.conversionExtraPartitionField" [disabled]=disable>
+          </div>
+        </div>
+        <div class="c-column ">
+          <label class="c-bot5px c-element">Входные таблицы ПУД</label>
+          <ul class="c-chip-area-full c-left1p shadows">
+            <li class="collection-item c-chip" *ngFor="let name of pudTables">
+              <app-pud-table [name]="name" [hide]="hidden"></app-pud-table>
+            </li>
+          </ul>
+        </div>
+        <div class="c-row">
+          <div class="c-element c-column c-sp11">
+            <label class="c-bot5px c-element">Тип SCD</label>
+            <input id="scd_type" class="c-element c-sp10" [defaultValue]="table.scdType" [disabled]=disable>
+          </div>
+          <div class="c-element c-column c-sp7">
+            <label class="c-bot5px c-element">Etl Id Dev</label>
+            <input id="etl_id_dev" class="c-input  c-sp10" [defaultValue]="table.etlIdDev" [disabled]=disable>
+          </div>
+          <div class="c-element c-column c-sp7">
+            <label class="c-bot5px c-element">Etl Id Wrk</label>
+            <input id="etl_id_wrk" class="c-input  c-sp10" [defaultValue]="table.etlIdWrk" [disabled]=disable>
+          </div>
+          <div class="c-element c-column c-sp7">
+            <label class="c-bot5px c-element">Etl Id Prod</label>
+            <input id="etl_id_prod" class="c-input  c-sp10" [defaultValue]="table.etlIdProd" [disabled]=disable>
+          </div>
+          <div class="c-element c-column c-sp90">
+            <label class="c-bot5px c-element">PK</label>
+            <input id="pk" class="c-input" [defaultValue]="table.pk" [disabled]=disable>
+          </div>
+          <div class="c-element c-column c-sp14">
+            <div class="c-top20px">
+              <input id="is_approved" type="checkbox" class="filled-in" [disabled]=disable [checked]="table.approved">
+              <span>Проверка S2T</span>
+            </div>
+          </div>
+        </div>
+        <div class="c-row">
+          <div class="c-element c-column c-sp47">
+            <label class="c-bot5px c-element">Параметры ETL</label>
+            <textarea id="etl_params" class="c-element input-field" [disabled]=disable>{{table.etlParams}}</textarea>
+          </div>
+          <div class="c-element c-column c-sp48">
+            <label class="c-bot5px c-element">Параметры Spark Submit DEV</label>
+            <textarea id="spark_submit_parameters" class="c-element input-field"
+                      [disabled]=disable>{{table.sparkSubmitParameters}}</textarea>
+          </div>
+        </div>
+        <div class="c-row">
+          <div class="c-element c-column c-sp31d5">
+            <label class="c-bot5px c-element">Создание директории HDFS на DEV</label>
+            <textarea id="create_dir_hdfs_dev" class="c-element input-field"
+                      [disabled]=disable>{{table.createDirHdfsDev}}</textarea>
+          </div>
+          <div class="c-element c-column c-sp31d5">
+            <label class="c-bot5px c-element">DDL на DEV (Hive)</label>
+            <textarea id="ddl_on_dev" class="c-element input-field" [disabled]=disable>{{table.ddlOnDev}}</textarea>
+          </div>
+          <div class="c-element c-column c-sp31d5">
+            <label class="c-bot5px c-element">Регистрация в оркестраторе DEV</label>
+            <textarea id="register_on_orchestrator_dev" class="c-element input-field"
+                      [disabled]=disable>{{table.registerOnOrchestratorDev}}</textarea>
+          </div>
+        </div>
+        <div class="c-row">
+          <div class="c-element c-column c-sp31d5">
+            <label class="c-bot5px c-element">Создание директории HDFS на WRK</label>
+            <textarea id="create_dir_hdfs_wrk" class="c-element input-field"
+                      [disabled]=disable>{{table.createDirHdfsWrk}}</textarea>
+          </div>
+          <div class="c-element c-column c-sp31d5">
+            <label class="c-bot5px c-element">DDL на WRK (Hive)</label>
+            <textarea id="ddl_on_wrk" class="c-element input-field" [disabled]=disable>{{table.ddlOnWrk}}</textarea>
+          </div>
+          <div class="c-element c-column c-sp31d5">
+            <label class="c-bot5px c-element">Регистрация в оркестраторе WRK</label>
+            <textarea id="register_on_orchestrator_wrk" class="c-element input-field"
+                      [disabled]=disable>{{table.registerOnOrchestratorWrk}}</textarea>
+          </div>
+        </div>
+        <div class="c-row">
+          <div class="c-element c-column c-sp31d5">
+            <label class="c-bot5px c-element">Создание директории HDFS на PROD</label>
+            <textarea id="create_dir_hdfs_prod" class="c-element input-field"
+                      [disabled]=disable>{{table.createDirHdfsProd}}</textarea>
+          </div>
+          <div class="c-element c-column c-sp31d5">
+            <label class="c-bot5px c-element">DDL на PROD (Hive)</label>
+            <textarea id="ddl_on_prod" class="c-element input-field" [disabled]=disable>{{table.ddlOnProd}}</textarea>
+          </div>
+          <div class="c-element c-column c-sp31d5">
+            <label class="c-bot5px c-element">Регистрация в оркестраторе PROD</label>
+            <textarea id="register_on_orchestrator_prod" class="c-element input-field"
+                      [disabled]=disable>{{table.registerOnOrchestratorProd}}</textarea>
+          </div>
+        </div>
+
+        <ul class="c-left1p">
+          <li class="c-chip c-attribute-area" *ngFor="let attribute of attributes">
+            <app-dds-view-attribute [setAttribute]="attribute"></app-dds-view-attribute>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

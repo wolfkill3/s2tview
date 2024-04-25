@@ -14,13 +14,14 @@ import {ReactiveFormsModule} from "@angular/forms";
 export class PudTableComponent implements OnInit {
   @Input() public name:String = '';
   @Output() public delete: EventEmitter<String> = new EventEmitter()
+  @Input() public hide = false
 
   constructor() {
   }
   ngOnInit() {}
 
   public deleteMe() {
-    console.log('deletion')
+    // console.log('deletion')
     this.delete.emit(this.name);
   }
 }
