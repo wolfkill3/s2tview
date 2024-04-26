@@ -78,13 +78,7 @@ export class EditComponent {
               private detector: ChangeDetectorRef,
               private ngZone: NgZone) {
   }
-
-  public load(): void {
-    this.hidden = false
-    this.getTable()
-  }
-
-  public getTable() {
+  public load() {
     this.client.get<Object>(BASE_URL + 's2t/' + this.dataLayer + '/JSON/' + this.tableName).subscribe(obj => {
         let view = obj as DdsView
         this.table.tableType = view.table.tableType || ''
@@ -149,6 +143,9 @@ export class EditComponent {
             this.attributes.push(a)
           })
         })
+      this.hidden = false
+      }, error => {
+      this.hidden = true
       }
     )
     this.detector.detectChanges()

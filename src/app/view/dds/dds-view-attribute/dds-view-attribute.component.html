@@ -4,9 +4,13 @@
       <label class="c-bot5px c-element">Поле ПУД</label>
       <input class="c-input" [defaultValue]="attributeName" [disabled]=disable>
     </div>
-    <div class="c-element c-column c-sp17">
+    <div class="c-element c-column c-sp18">
       <label class="c-bot5px c-element">Атрибут</label>
       <input class="c-input  c-sp17" [defaultValue]="description" [disabled]=disable>
+    </div>
+    <div class="c-element c-column c-sp9">
+      <label class="c-bot5px c-element">Тип данных ПУД</label>
+      <input class="c-input  c-sp17" [defaultValue]="attributeType" [disabled]=disable>
     </div>
     <div class="c-element c-column c-sp18">
       <label class="c-bot5px c-element">Комментарий</label>
@@ -16,34 +20,30 @@
 <!--      <label class="c-bot5px c-element">Таблица ПУД</label>-->
 <!--      <input class="c-input  c-sp23" [defaultValue]="schemePud" [disabled]=disable>-->
 <!--    </div>-->
-    <div class="c-element c-column c-sp10">
-      <label class="c-bot5px c-element">Тип данных ПУД</label>
-      <input class="c-input  c-sp17" [defaultValue]="attributeType" [disabled]=disable>
-    </div>
     <div class="c-element c-column c-sp30">
       <label class="c-bot5px c-element">Выр. для расчета атрибута</label>
       <input class="c-input  c-sp23" [defaultValue]="attributeValueExpression" [disabled]=disable>
     </div>
   </div>
   <div class="c-row">
-    <div class="c-element c-column c-sp20">
-      <label class="c-bot5px c-element">sourcesAsIs</label>
+    <div class="c-element c-column c-sp19">
+      <label class="c-bot5px c-element">Источник AS IS</label>
       <input class="c-input" [defaultValue]="sourcesAsIs" [disabled]=disable>
     </div>
     <div class="c-element c-column c-sp17">
-      <label class="c-bot5px c-element">fkTableName</label>
+      <label class="c-bot5px c-element">FK-таблица</label>
       <input class="c-input " [defaultValue]="fkTableName" [disabled]=disable>
     </div>
-    <div class="c-element c-column c-sp8">
-      <label class="c-bot5px c-element">suffix</label>
-      <input class="c-input " [defaultValue]="suffix" [disabled]=disable>
-    </div>
-    <div class="c-element c-column c-sp20">
-      <label class="c-bot5px c-element">conversionDataType</label>
+    <div class="c-element c-column c-sp9">
+      <label class="c-bot5px c-element">Рассчетный тип данных</label>
       <input class="c-input " [defaultValue]="conversionDataType" [disabled]=disable>
     </div>
-    <div class="c-element c-column c-sp30">
-      <label class="c-bot5px c-element">selectQueryForSourceAsIs</label>
+    <div class="c-element c-column c-sp6">
+      <label class="c-bot5px c-element">Суффикс</label>
+      <input class="c-input " [defaultValue]="suffix" [disabled]=disable>
+    </div>
+    <div class="c-element c-column c-sp40">
+      <label class="c-bot5px c-element">Генерация SELECT для расчета справочника AS IS</label>
       <input class="c-input  c-sp25" [defaultValue]="selectQueryForSourceAsIs" [disabled]=disable>
     </div>
   </div>
